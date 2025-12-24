@@ -1,0 +1,1 @@
+/workspace/luoshiyong/cv/cvdata/fire_dataset/yolo/images/001032.jpg

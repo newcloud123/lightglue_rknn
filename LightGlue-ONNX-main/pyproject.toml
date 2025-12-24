@@ -1,0 +1,54 @@
+[tool.poetry]
+name = "lightglue-onnx"
+version = "2.0.0"
+description = "ONNX-compatible LightGlue: Local Feature Matching at Light Speed. Supports TensorRT, TorchDynamo"
+authors = ["Fabio Milentiansen Sim <fabio.milentiansen.sim@gmail.com>"]
+license = "Apache-2.0"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+matplotlib = "^3.9.1"
+opencv-python = "^4.10.0.84"
+typer = "^0.12.3"
+onnxruntime-gpu = {version = "^1.18.1", source = "onnxruntime-gpu-src"}
+
+[tool.poetry.group.export.dependencies]
+onnx = "^1.16.1"
+onnxscript = "^0.1.0.dev20240708"
+
+[[tool.poetry.source]]
+name = "onnxruntime-gpu-src"
+url = "https://aiinfra.pkgs.visualstudio.com/PublicPackages/_packaging/onnxruntime-cuda-12/pypi/simple"
+priority = "explicit"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.ruff]
+target-version = "py311"
+line-length = 120
+
+[tool.ruff.lint]
+select = [
+    "F",  # pyflakes
+    "E",  # pycodestyle errors
+    "W",  # pycodestyle warnings
+    "I",  # isort
+    "B",  # flake8-bugbear
+    "A",  # flake8-builtins
+    "C4",  # flake8-comprehensions
+    "UP",  # pyupgrade
+    "SIM",  # flake8-simplify
+    "PLC",  # pylint
+    "PLE",  # pylint
+    "PLW",  # pylint
+    "NPY",  # numpy
+    "RUF",  # ruff
+    "PERF",  # perflint
+]
+ignore = [
+    "E501",  # line too long, handled by black
+    "W191",  # indentation contains tabs
+]
